@@ -11,6 +11,7 @@ using Office = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace QuotesInMSWord
 {
@@ -22,11 +23,26 @@ namespace QuotesInMSWord
             dgvQuotes.RowsDefaultCellStyle.BackColor = Color.White;
             dgvQuotes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             dgvQuotes.CellFormatting += dgvQuotes_CellFormatting;
-
+            
             this.tbInputSymbols.TextChanged += tbInputSymbols_TextChanged;
+            this.tbInputSymbols.KeyPress += tbInputSymbols_KeyPress; 
             btnGenerateTable.Enabled = false; //assume there is no content in input text box
         }
 
+        void tbInputSymbols_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !IsAllowed(e.KeyChar);
+        }
+        public bool IsAllowed(char ch)
+        {
+            return (ch >= '0' && ch <= '9' ||
+                ch == ',' ||
+                ch >= 'A' && ch <= 'Z' ||
+                ch >= 'a' && ch <= 'z' || 
+                ch == 127|| //del
+                ch == 8); //back space
+            
+        }
         void dgvQuotes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try

@@ -187,11 +187,6 @@ namespace QuotesInMSWord {
             this.YearLow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuotes)).BeginInit();
             // 
-            // ActionsPane
-            // 
-            this.ActionsPane.AutoSize = false;
-            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            // 
             // dgvQuotes
             // 
             this.dgvQuotes.AllowUserToAddRows = false;
@@ -228,18 +223,6 @@ namespace QuotesInMSWord {
             this.dgvQuotes.RowHeadersVisible = false;
             this.dgvQuotes.RowTemplate.Height = 24;
             this.dgvQuotes.Text = "dataGridView1";
-            // 
-            // btnGenerateTable
-            // 
-            this.btnGenerateTable.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGenerateTable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGenerateTable.Name = "btnGenerateTable";
-            this.btnGenerateTable.Text = "Generate Table";
-            this.btnGenerateTable.UseVisualStyleBackColor = false;
-            // 
-            // tbInputSymbols
-            // 
-            this.tbInputSymbols.Name = "tbInputSymbols";
             // 
             // Ticker
             // 
@@ -316,6 +299,23 @@ namespace QuotesInMSWord {
             this.YearLow.Name = "YearLow";
             this.YearLow.ReadOnly = true;
             this.YearLow.Width = 90;
+            // 
+            // btnGenerateTable
+            // 
+            this.btnGenerateTable.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGenerateTable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGenerateTable.Name = "btnGenerateTable";
+            this.btnGenerateTable.Text = "Generate Table";
+            this.btnGenerateTable.UseVisualStyleBackColor = false;
+            // 
+            // tbInputSymbols
+            // 
+            this.tbInputSymbols.Name = "tbInputSymbols";
+            // 
+            // ActionsPane
+            // 
+            this.ActionsPane.AutoSize = false;
+            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             // 
             // ThisDocument
             // 
