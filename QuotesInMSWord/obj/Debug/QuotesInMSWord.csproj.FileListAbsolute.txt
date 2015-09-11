@@ -28,3 +28,11 @@ E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\bin\Debug\Microsoft.
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.xml
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\QuotesInMSWord.pdb
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\TickerInputControl.baml
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\TickerInputControl.g.cs
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\QuotesInMSWord_MarkupCompile.cache
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\QuotesInMSWord.g.resources
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\CustomDataGrid.baml
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\CustomDataGrid.g.cs
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\QuotesInMSWord_MarkupCompile.lref

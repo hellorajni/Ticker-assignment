@@ -1,0 +1,3 @@
+﻿<hostctls:hostControls hostctls:namespace="QuotesInMSWord" hostctls:factoryType="QuotesInMSWord" xmlns:hostctls="http://schemas.microsoft.com/2004/VisualStudio/Tools/Applications/HostControls.xsd">
+  <hostctls:windowsFormsHostControl hostctls:name="QuotesInMSWord_WinformControlHostDataGrid" hostctls:primaryType="QuotesInMSWord.WinformControlHostDataGrid" hostctls:extenderType="Microsoft.Office.Tools.Word.ControlSite" />
+</hostctls:hostControls>

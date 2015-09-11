@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Microsoft.Office.Tools.Word;
-using Microsoft.VisualStudio.Tools.Applications.Runtime;
-using Office = Microsoft.Office.Core;
-using Word = Microsoft.Office.Interop.Word;
+﻿using System.Windows.Forms;
 using System.Drawing;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 namespace QuotesInMSWord
 {
@@ -24,25 +12,17 @@ namespace QuotesInMSWord
             dgvQuotes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             dgvQuotes.CellFormatting += dgvQuotes_CellFormatting;
             
-            this.tbInputSymbols.TextChanged += tbInputSymbols_TextChanged;
-            this.tbInputSymbols.KeyPress += tbInputSymbols_KeyPress; 
-            btnGenerateTable.Enabled = false; //assume there is no content in input text box
+            var wfcHost = new WinformControlHostInputs();
+            this.ActionsPane.Controls.Add(wfcHost);
+
+            //reference the Quotes collection to inputs view model so that it can update.
+            var inputVM = wfcHost._TickerInputControl.DataContext as TickerInputViewModel;
+            var dataGridVM = this.quotesInMSWord_WinformControlHostDataGrid1._CustomDataGrid.DataContext as CustomDataGridViewModel;
+            inputVM.Quotes = dataGridVM.Quotes;
+
         }
 
-        void tbInputSymbols_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !IsAllowed(e.KeyChar);
-        }
-        public bool IsAllowed(char ch)
-        {
-            return (ch >= '0' && ch <= '9' ||
-                ch == ',' ||
-                ch >= 'A' && ch <= 'Z' ||
-                ch >= 'a' && ch <= 'z' || 
-                ch == 127|| //del
-                ch == 8); //back space
-            
-        }
+     
         void dgvQuotes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -67,55 +47,7 @@ namespace QuotesInMSWord
             }
         }
 
-        void tbInputSymbols_TextChanged(object sender, EventArgs e)
-        {
-            //disable generate table button when no input is provided
-            //TODO: Regex or validate input symbols
-            this.btnGenerateTable.Enabled = !string.IsNullOrWhiteSpace(this.tbInputSymbols.Text);
-        }
-
-        /// <summary>
-        /// Get qoutes then update data grid
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnGenerateTable_Click(object sender, EventArgs e)
-        {
-            btnGenerateTable.Enabled = false; //avoid multiple clicks
-
-            string[] tickers = this.tbInputSymbols.Text.Split(new char[] { ',' });
-
-            Task<List<Quote>> t1 = Task.Run(() =>
-            {
-
-                return QuoteManager.Get(tickers);//get quotes
-            });
-            t1.ContinueWith((x, y) =>
-            {
-                dgvQuotes.BeginInvoke((System.Action)(() =>
-                {
-                    try
-                    {
-                        dgvQuotes.DataSource = x.Result;
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show("Error in getting quotes!" + Environment.NewLine + ex.Message); ;
-                    }
-                    btnGenerateTable.Enabled = true;
-                }));
-
-            }, TaskContinuationOptions.OnlyOnRanToCompletion).ContinueWith(x =>
-            {
-                dgvQuotes.BeginInvoke((System.Action)(() =>
-                {
-                    btnGenerateTable.Enabled = true; //enable it back in any case
-                }));
-            });
-
-        }
-        
-
+      
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
         {
 
@@ -129,7 +61,6 @@ namespace QuotesInMSWord
         /// </summary>
         private void InternalStartup()
         {
-            this.btnGenerateTable.Click += new System.EventHandler(this.btnGenerateTable_Click);
             this.Startup += new System.EventHandler(this.ThisDocument_Startup);
             this.Shutdown += new System.EventHandler(this.ThisDocument_Shutdown);
 

@@ -25,11 +25,9 @@ namespace QuotesInMSWord {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "12.0.0.0")]
         internal Microsoft.Office.Interop.Word.Application ThisApplication;
         
+        internal QuotesInMSWord_WinformControlHostDataGrid quotesInMSWord_WinformControlHostDataGrid1;
+        
         internal Microsoft.Office.Tools.Word.Controls.DataGridView dgvQuotes;
-        
-        internal Microsoft.Office.Tools.Word.Controls.Button btnGenerateTable;
-        
-        internal Microsoft.Office.Tools.Word.Controls.TextBox tbInputSymbols;
         
         internal System.Windows.Forms.DataGridViewTextBoxColumn Ticker;
         
@@ -159,9 +157,8 @@ namespace QuotesInMSWord {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeControls() {
             this.ActionsPane = Globals.Factory.CreateActionsPane(null, null, "ActionsPane", "ActionsPane", this);
+            this.quotesInMSWord_WinformControlHostDataGrid1 = new QuotesInMSWord_WinformControlHostDataGrid(Globals.Factory, this.ItemProvider, this.HostContext, "144697BB81D8B514CFE1AB531D71F2A7349751", "144697BB81D8B514CFE1AB531D71F2A7349751", this, "quotesInMSWord_WinformControlHostDataGrid1");
             this.dgvQuotes = new Microsoft.Office.Tools.Word.Controls.DataGridView(Globals.Factory, this.ItemProvider, this.HostContext, "00F41530109EB00483E0947709B821EB0BD720", "00F41530109EB00483E0947709B821EB0BD720", this, "dgvQuotes");
-            this.btnGenerateTable = new Microsoft.Office.Tools.Word.Controls.Button(Globals.Factory, this.ItemProvider, this.HostContext, "2895DDAD32400E24FDD2903524026940CA94B2", "2895DDAD32400E24FDD2903524026940CA94B2", this, "btnGenerateTable");
-            this.tbInputSymbols = new Microsoft.Office.Tools.Word.Controls.TextBox(Globals.Factory, this.ItemProvider, this.HostContext, "1E80B6F121B3C2149661BD1C1699E7E288C101", "1E80B6F121B3C2149661BD1C1699E7E288C101", this, "tbInputSymbols");
         }
         
         /// 
@@ -171,6 +168,7 @@ namespace QuotesInMSWord {
         private void InitializeComponents() {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -186,6 +184,11 @@ namespace QuotesInMSWord {
             this.YealHigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YearLow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuotes)).BeginInit();
+            // 
+            // ActionsPane
+            // 
+            this.ActionsPane.AutoSize = false;
+            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             // 
             // dgvQuotes
             // 
@@ -209,20 +212,33 @@ namespace QuotesInMSWord {
                         this.DayLow,
                         this.YealHigh,
                         this.YearLow});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvQuotes.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvQuotes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvQuotes.Name = "dgvQuotes";
             this.dgvQuotes.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvQuotes.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvQuotes.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvQuotes.RowHeadersVisible = false;
             this.dgvQuotes.RowTemplate.Height = 24;
             this.dgvQuotes.Text = "dataGridView1";
+            // 
+            // quotesInMSWord_WinformControlHostDataGrid1
+            // 
+            this.quotesInMSWord_WinformControlHostDataGrid1.Name = "quotesInMSWord_WinformControlHostDataGrid1";
+            this.quotesInMSWord_WinformControlHostDataGrid1.Text = "quotesInMSWord_WinformControlHostDataGrid1";
             // 
             // Ticker
             // 
@@ -248,7 +264,7 @@ namespace QuotesInMSWord {
             // 
             this.ChangeInPercent.DataPropertyName = "ChangeInPercent";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "0:00%";
+            dataGridViewCellStyle4.Format = "0.00\\%";
             dataGridViewCellStyle4.NullValue = null;
             this.ChangeInPercent.DefaultCellStyle = dataGridViewCellStyle4;
             this.ChangeInPercent.HeaderText = "% Change";
@@ -260,7 +276,7 @@ namespace QuotesInMSWord {
             // 
             this.DayHigh.DataPropertyName = "DayHigh";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "0:00";
+            dataGridViewCellStyle5.Format = "0.00";
             this.DayHigh.DefaultCellStyle = dataGridViewCellStyle5;
             this.DayHigh.HeaderText = "Day High";
             this.DayHigh.Name = "DayHigh";
@@ -271,7 +287,7 @@ namespace QuotesInMSWord {
             // 
             this.DayLow.DataPropertyName = "DayLow";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "0:00";
+            dataGridViewCellStyle6.Format = "0.00";
             this.DayLow.DefaultCellStyle = dataGridViewCellStyle6;
             this.DayLow.HeaderText = "Day Low";
             this.DayLow.Name = "DayLow";
@@ -282,7 +298,7 @@ namespace QuotesInMSWord {
             // 
             this.YealHigh.DataPropertyName = "YearHigh";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "0:00";
+            dataGridViewCellStyle7.Format = "0.00";
             this.YealHigh.DefaultCellStyle = dataGridViewCellStyle7;
             this.YealHigh.HeaderText = "Year High";
             this.YealHigh.Name = "YealHigh";
@@ -293,36 +309,18 @@ namespace QuotesInMSWord {
             // 
             this.YearLow.DataPropertyName = "YearLow";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "0:00";
+            dataGridViewCellStyle8.Format = "0.00";
             this.YearLow.DefaultCellStyle = dataGridViewCellStyle8;
             this.YearLow.HeaderText = "Year Low";
             this.YearLow.Name = "YearLow";
             this.YearLow.ReadOnly = true;
             this.YearLow.Width = 90;
             // 
-            // btnGenerateTable
-            // 
-            this.btnGenerateTable.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGenerateTable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGenerateTable.Name = "btnGenerateTable";
-            this.btnGenerateTable.Text = "Generate Table";
-            this.btnGenerateTable.UseVisualStyleBackColor = false;
-            // 
-            // tbInputSymbols
-            // 
-            this.tbInputSymbols.Name = "tbInputSymbols";
-            // 
-            // ActionsPane
-            // 
-            this.ActionsPane.AutoSize = false;
-            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            // 
             // ThisDocument
             // 
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuotes)).EndInit();
+            this.quotesInMSWord_WinformControlHostDataGrid1.BindingContext = this.BindingContext;
             this.dgvQuotes.BindingContext = this.BindingContext;
-            this.btnGenerateTable.BindingContext = this.BindingContext;
-            this.tbInputSymbols.BindingContext = this.BindingContext;
         }
         
         /// 

@@ -59,15 +59,20 @@
     This section specifies references for the project.
   -->
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -102,6 +107,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDataGrid.xaml.cs">
+      <DependentUpon>CustomDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomDataGridViewModel.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="QuotesInMSWord.Designer.cs">
+      <DependentUpon>QuotesInMSWord.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="TickerInputControl.xaml.cs">
+      <DependentUpon>TickerInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TickerInputViewModel.cs" />
+    <Compile Include="ValueToColorConverter.cs" />
+    <Compile Include="WinformControlHostDataGrid.cs" />
+    <Compile Include="WinformControlHostInputs.cs" />
     <EmbeddedResource Include="ThisDocument.resx">
       <DependentUpon>ThisDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +158,21 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="CustomDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TickerInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QuotesInMSWord.Designer.xml">
+      <DependentUpon>QuotesInMSWord.dotx</DependentUpon>
+    </None>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -158,6 +193,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="QuotesInMSWord.dotx" HostPackage="{763FDC83-64E5-4651-AC9B-28C4FEB985A1}" OfficeVersion="14.0" VstxVersion="4.0" ApplicationType="DOT" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files (x86)\Microsoft Office\Office14\WINWORD.EXE" DebugInfoCommandLine="/w /z&quot;[$OUTPUT]QuotesInMSWord.dotx&quot;" />
         <Host Name="Word Document" Path=".\QuotesInMSWord.dotx" GeneratedCodeNamespace="QuotesInMSWord">
+          <HostControls Blueprint="QuotesInMSWord.Designer.xml" GeneratedCode="QuotesInMSWord.Designer.cs" />
           <HostItem Name="ThisDocument" Code="ThisDocument.cs" CanonicalName="ThisDocument" Blueprint="ThisDocument.Designer.xml" GeneratedCode="ThisDocument.Designer.cs" />
         </Host>
       </FlavorProperties>
