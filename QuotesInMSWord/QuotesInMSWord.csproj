@@ -107,27 +107,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomDataGrid.xaml.cs">
+    <Compile Include="Controls\Views\CustomDataGrid.xaml.cs">
       <DependentUpon>CustomDataGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomDataGridViewModel.cs" />
-    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Controls\ViewModels\CustomDataGridViewModel.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="QuotesInMSWord.Designer.cs">
       <DependentUpon>QuotesInMSWord.Designer.xml</DependentUpon>
     </Compile>
-    <Compile Include="TickerInputControl.xaml.cs">
+    <Compile Include="Controls\Views\TickerInputControl.xaml.cs">
       <DependentUpon>TickerInputControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TickerInputViewModel.cs" />
-    <Compile Include="ValueToColorConverter.cs" />
-    <Compile Include="WinformControlHostDataGrid.cs" />
-    <Compile Include="WinformControlHostInputs.cs" />
+    <Compile Include="Controls\ViewModels\TickerInputViewModel.cs" />
+    <Compile Include="Converters\ValueToColorConverter.cs" />
+    <Compile Include="ElementHosts\WinformControlHostDataGrid.cs" />
+    <Compile Include="ElementHosts\WinformControlHostInputs.cs" />
     <EmbeddedResource Include="ThisDocument.resx">
       <DependentUpon>ThisDocument.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="QuotesInMSWord.dotx" />
-    <Compile Include="Quote.cs" />
-    <Compile Include="QuoteManager.cs" />
+    <Compile Include="Models\Quote.cs" />
+    <Compile Include="Models\QuoteManager.cs" />
     <Compile Include="ThisDocument.cs">
       <DependentUpon>QuotesInMSWord.dotx</DependentUpon>
     </Compile>
@@ -159,11 +159,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="CustomDataGrid.xaml">
+    <Page Include="Controls\Views\CustomDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TickerInputControl.xaml">
+    <Page Include="Controls\Views\TickerInputControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

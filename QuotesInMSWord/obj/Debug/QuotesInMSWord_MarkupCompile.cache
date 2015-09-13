@@ -10,11 +10,11 @@ none
 false
 VSTO40;DEBUG;TRACE
 
-2-1094008949
+2-1749162481
 
-16-1268682021
+161717918705
 26-1588312224
-CustomDataGrid.xaml;TickerInputControl.xaml;
+Controls\Views\CustomDataGrid.xaml;Controls\Views\TickerInputControl.xaml;
 
 False
 

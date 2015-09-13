@@ -13,6 +13,7 @@ namespace QuotesInMSWord
             dgvQuotes.CellFormatting += dgvQuotes_CellFormatting;
             
             var wfcHost = new WinformControlHostInputs();
+            wfcHost.Height=200;
             this.ActionsPane.Controls.Add(wfcHost);
 
             //reference the Quotes collection to inputs view model so that it can update.

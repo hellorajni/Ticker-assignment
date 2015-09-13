@@ -11,7 +11,6 @@ namespace QuotesInMSWord
 
         public WinformControlHostInputs()
         {
-         
             base.Child = _TickerInputControl;
         }
 

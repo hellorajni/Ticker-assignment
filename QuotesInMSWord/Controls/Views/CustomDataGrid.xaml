@@ -39,11 +39,6 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <!--<Setter Property="Foreground">
-                    <Setter.Value>
-                        <Binding Converter="{StaticResource ValueToColorConverter}"/>
-                    </Setter.Value>
-                </Setter>-->
                 <Setter Property="Height" Value="20"/>
                 
             </Style>

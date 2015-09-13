@@ -20,10 +20,13 @@
                 </Style.Triggers>
             </Style>
         </Grid.Resources>
+        <Border BorderBrush="Blue">
         <StackPanel>
             <Label Content="Enter ticker symbols:"/>
             <TextBox Text="{Binding InputSymbols,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"  Style="{StaticResource CustomTextBoxStyle}" />
             <Button Content="Generate Table" Width="100" Height="20"  Command="{Binding GenerateTableCommand}" IsDefault="True"/>
-        </StackPanel>
+            <TextBlock Text="{Binding ErrorMessage}" TextWrapping="Wrap" Height="70" Foreground="Red" Margin="5,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto"  />
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

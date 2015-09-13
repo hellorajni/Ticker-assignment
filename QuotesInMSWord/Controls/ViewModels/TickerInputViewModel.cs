@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace QuotesInMSWord
 {
-    public class TickerInputViewModel : IDataErrorInfo
+    public class TickerInputViewModel : IDataErrorInfo, INotifyPropertyChanged
     {
         #region Properties
         
@@ -20,13 +20,30 @@ namespace QuotesInMSWord
         public ObservableCollection<Quote> Quotes { get; set; } //set explicitly
 
         public ICommand GenerateTableCommand { get; set; }
+
+        private string _errorMessage = string.Empty;
+        public string ErrorMessage 
+        { 
+            get{return _errorMessage;}
+            set 
+            {
+                _errorMessage = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("ErrorMessage"));
+                }
+            }
+        }
         
+        public event PropertyChangedEventHandler PropertyChanged;
+
         #endregion
 
         #region Contructor
         public TickerInputViewModel()
         {
             GenerateTableCommand = new DelegateCommand(Execute, CanExecute);
+            ErrorMessage = string.Empty;
         }
         #endregion
 
@@ -71,7 +88,19 @@ namespace QuotesInMSWord
                     Globals.ThisDocument.dgvQuotes.DataSource = x.Result;
                 }));
 
-            }, TaskContinuationOptions.OnlyOnRanToCompletion).ContinueWith(x =>
+            },TaskContinuationOptions.OnlyOnRanToCompletion).ContinueWith(x =>
+            {
+                string errorMessage = string.Empty;
+                Exception ex = x.Exception;
+                while (ex != null)
+                {
+                    errorMessage = ex.Message;//capture the root error
+                    ex = ex.InnerException;
+                }
+
+                ErrorMessage = errorMessage;
+                
+            },TaskContinuationOptions.OnlyOnFaulted).ContinueWith(x =>
             {
                 IsProcessing = false;
             });
@@ -100,5 +129,7 @@ namespace QuotesInMSWord
             }
         }
         #endregion
+
+
     }
 }
