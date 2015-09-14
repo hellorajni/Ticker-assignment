@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace QuotesInMSWord
 {
     class QuoteManager
     {
-        private const string COMMA = "%2C"; //hex values
-        private const string SPACE = "%22";
+        private const string COMMA = "%2C"; //, hex values
+        private const string DOUBLE_QM = "%22";//"
         //Found it on web serach
         private const string BASE_URL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20({0})&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
@@ -19,19 +22,37 @@ namespace QuotesInMSWord
         /// <returns>quotes</returns>
         public static List<Quote> Get(string[] tickers)
         {
-
             List<Quote> quotes = new List<Quote>(tickers.Count());
             foreach (var ticker in tickers)
             {
                 quotes.Add(new Quote(ticker));
             }
-            string url = string.Format(BASE_URL, String.Join(COMMA, tickers.Select(ticker => SPACE + ticker + SPACE).ToArray()));
+            string url = string.Format(BASE_URL, String.Join(COMMA, tickers.Select(ticker => DOUBLE_QM + ticker + DOUBLE_QM).ToArray()));
 
-            //TODO: Implement time out?
+             //XmlDocument  x = GetData(url); //TODO : use this instead of xdocument load
+
             XDocument doc = XDocument.Load(url);
             Parse(quotes, doc);
             
             return quotes;
+        }
+
+        public static XmlDocument GetData(string url)
+        {
+            XmlDocument xmlData = new XmlDocument();
+            HttpWebRequest rq = (HttpWebRequest)WebRequest.Create(url);
+
+            rq.Timeout = 10000; //10 sec
+
+            HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
+
+            using (Stream responseStream = response.GetResponseStream())
+            {
+                XmlTextReader reader = new XmlTextReader(responseStream);
+                xmlData.Load(reader);
+            }
+
+            return xmlData;
         }
 
         /// <summary>
@@ -66,6 +87,7 @@ namespace QuotesInMSWord
             }
         }
 
+     
         private static double? GetDouble(string input)
         {
             if (string.IsNullOrWhiteSpace(input))

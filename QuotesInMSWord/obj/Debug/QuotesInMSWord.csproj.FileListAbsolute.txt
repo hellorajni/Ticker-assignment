@@ -35,3 +35,4 @@ E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\Controls\V
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\Controls\Views\CustomDataGrid.g.cs
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\Controls\Views\TickerInputControl.g.cs
 E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\Controls\Views\CustomDataGrid.baml
+E:\projects\QuotesInMSWord\Ticker-assignment\QuotesInMSWord\obj\Debug\QuotesInMSWord.csprojResolveAssemblyReference.cache
